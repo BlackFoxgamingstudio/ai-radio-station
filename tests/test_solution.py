@@ -22,7 +22,7 @@ class TestAIRadioStation(unittest.TestCase):
         self.assertEqual(res["status"], "SUCCESS")
         seg = res["result"]
         self.assertIn("SEG-", seg["segment_id"])
-        self.assertIn("Sovereign Broadcast", seg["spoken_script"])
+        self.assertIn("W-SBB Radio", seg["spoken_script"])
         self.assertGreater(seg["estimated_duration_sec"], 10.0)
 
     def test_03_playout_mixer(self):
