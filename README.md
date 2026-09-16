@@ -27,8 +27,14 @@ Autonomous 24/7 audio broadcast and radio station microservice. Generates dynami
 
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
+| `GET` | `/` or `/radio` | **Cyber-Broadcast Radio Console UI** with Web Audio API real-time visualizer, transport controls, and categorized track library. |
 | `GET` | `/health` | Returns station health, current show title, port, and uptime. |
-| `POST` | `/api/v1/execute` | Standard n8n microservice execution endpoint (track cueing, schedule queries). |
+| `GET` | `/audio/{file_name}` | High-fidelity audio streaming with **HTTP 206 Partial Content (Byte-Range requests)**. |
+| `GET` | `/api/v1/radio/tracks` | Returns full categorized catalog of tracks (Podcasts, Stories, Commercials, Songs). |
+| `GET` | `/api/v1/radio/now-playing` | Returns currently playing track, daypart, listeners, and ducking status. |
+| `POST` | `/api/v1/radio/play` | Changes active track and logs to SQLite `radio_schedule.db`. |
+| `POST` | `/api/v1/radio/generate-dj` | Synthesizes an on-air AI DJ spoken interstitial script with -14dB audio ducking. |
+| `POST` | `/api/v1/execute` | Standard n8n & macOS SwiftUI desktop app execution endpoint. |
 
 ---
 
